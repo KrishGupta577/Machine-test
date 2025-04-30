@@ -1,0 +1,66 @@
+.login-heading{
+    text-align: center;
+}
+
+.login-heading h1{
+    color: black;
+    margin-bottom: 10px;
+}
+
+.login-heading p{
+    font-size: 15px;
+}
+
+.form-section form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+.btn-login{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.btn-login button{
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+    background-color: lightgreen;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.btn-login button:hover{
+    background-color: green;
+    transform: scale(1.10);
+}
+
+.signup-link{
+    margin: 20px 0px;
+    text-align: center;
+}
+
+.signup-link a{
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.error-message {
+    color: #dc2626;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    text-align: center;
+}
+
+.login-partition{
+    text-align: center;
+    font-size: 18px;
+}

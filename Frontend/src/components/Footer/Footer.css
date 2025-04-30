@@ -1,0 +1,38 @@
+.footer{
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 70px 100px;
+    background-color: black;
+    color: white;
+}
+
+.exclusive input{
+    background-color: black;
+    padding: 8px 10px;
+    border: 2px solid white;
+    outline: none;
+    border-radius: 5px;
+}
+
+.exclusive-heading{
+    font-weight: 2000;
+    font-size: 22px;
+}
+
+.subscribe{
+    font-weight: 1000;
+}
+
+.social-links{
+    display: flex;
+    gap: 10px;
+}
+
+.copyright p{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: #ffffff;
+    text-align: center;
+}

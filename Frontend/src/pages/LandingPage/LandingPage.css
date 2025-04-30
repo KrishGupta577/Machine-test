@@ -1,0 +1,18 @@
+.landing-page{
+    display: flex;
+    gap: 20px;
+}
+
+.hero-img{
+    margin: 40px 0;
+}
+.hero-img img{
+    width: 900px;
+}
+
+.signup-container{
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    margin: 100px 40px 0 40px;
+}
