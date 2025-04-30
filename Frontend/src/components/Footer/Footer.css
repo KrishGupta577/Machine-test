@@ -26,13 +26,48 @@
 
 .social-links{
     display: flex;
-    gap: 10px;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.copyright{
+    border-top: 1px solid #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    color: #ffffff;
+    gap: 5px;
+    padding: 15px;
 }
 
 .copyright p{
     margin: 0;
     padding: 0;
-    background-color: black;
-    color: #ffffff;
-    text-align: center;
+}
+
+.app-images{
+    display: flex;
+    gap: 20px;
+}
+
+.playstore-images{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.playstore{
+    width: 104px;
+    height: 30px;
+}
+
+.appstore{
+    width: 104px;
+    height: 30px;
+}
+
+.qr-scanner{
+    width: 76px;
+    height: 76px;
 }

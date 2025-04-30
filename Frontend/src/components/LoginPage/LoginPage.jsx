@@ -1,23 +1,24 @@
-import { useState } from 'react';
-import "./LoginPage.css";
+import '../SignupPage/SignupPage.css'
+import { useForm } from "react-hook-form";
 import axios from "axios"
-import { useNavigate } from "react-router-dom"
-import { useForm } from 'react-hook-form'
-import { toast } from 'react-toastify';
+import { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify"
+import { StoreContext } from '../../Context/StoreContext';
 
-const LoginPage = () => {
+const Login = ({ setCurrState }) => {
 
   const [isLoading, setIsLoading] = useState(false);
+  const signupForm = useForm();
   const navigate = useNavigate()
-  const loginForm = useForm();
+  const { url } = useContext(StoreContext)
 
-  const loginValidation = {
-    username: {
-      required: "Email is required",
-      pattern: {
-        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-        message: "Invalid email address"
-      }
+  const signupValidation = {
+    name: {
+
+    },
+    email: {
+      required: "Email or phone number is required",
     },
     password: {
       required: "Password is required",
@@ -25,94 +26,97 @@ const LoginPage = () => {
         value: 8,
         message: "Password must have at least 8 characters"
       }
-    }
+    },
   };
 
-  const onHandleLoginSubmit = async (data) => {
+  const onHandleSignupSubmit = async (data) => {
     setIsLoading(true);
     try {
-      console.log(data)
-      // const response = await axios.post(url + '/api/user/login', data)
-      // if (response.data.success) {
-      //   toast.success("Welcome")
-      //   setToken(response.data.token)
-      //   localStorage.setItem("token", response.data.token)
-      //   setTimeout(() => {
-      //     navigate('/dashboard')
-      //   }, 1000);
-      // }
-      // else {
-      //   toast.error(response.data.message)
-      // }
-    } catch (error) {
+      const response = await axios.post(url + '/user/login', data)
+
+      if (response.data.success) {
+        toast.success(response.data.message)
+        navigate('/home')
+      }
+      else {
+        toast.error(response.data.message)
+      }
+    }
+    catch (error) {
       console.log("Error occured: ", error);
-      toast.error("Error occured")
     }
     finally {
       setIsLoading(false)
-      loginForm.reset()
+      signupForm.reset()
     }
-
-
   };
+
   return (
 
-    <div className="form-section">
-
-      <div className='login-heading'>
-        <h1>Welcome </h1>
-        <p>Please log in </p>
-      </div>
-
-      <form onSubmit={loginForm.handleSubmit(onHandleLoginSubmit)}>
-        <div className="input-group">
-          <div className='input-group-title'>
-            <label htmlFor="username">Email</label>
-          </div>
-          <input
-            type="email"
-            id="username"
-            {...loginForm.register('username', loginValidation.username)}
-            placeholder="Enter your Email"
-          />
-          {loginForm.formState.errors.username && (
-            <p className="error-message">{loginForm.formState.errors.username.message}</p>
-          )}
+    <div>
+      <div className="signup-form-section">
+        <div className="signup-header">
+          <h2>Welcome Back</h2>
+          <p>Enter your details below</p>
         </div>
+        <form onSubmit={signupForm.handleSubmit(onHandleSignupSubmit)}>
 
-        <div className="input-group">
-          <div className='input-group-title'>
-            <label htmlFor="password">Password</label>
-          </div>
-          <input
-            type="password"
-            id="password"
-            {...loginForm.register('password', loginValidation.password)}
-            placeholder="Enter your password"
-          />
-          {loginForm.formState.errors.password && (
-            <p className="error-message">{loginForm.formState.errors.password.message}</p>
-          )}
-        </div>
+          <div className="input-group" >
+            <input
+              type="text"
+              id="email"
+              {...signupForm.register('email', signupValidation.email)}
+              placeholder="Email or Phone Number"
+            />
 
-        <div className="btn-login">
-          <button type="submit" disabled={isLoading || loginForm.formState.isSubmitting}>
-            {isLoading ? (
-              <div className="loading-spinner">
-
-              </div>
-            ) : (
-              <>Login to Dashboard</>
+            {signupForm.formState.errors.email && (
+              <p className="error-message">
+                {signupForm.formState.errors.email.message}
+              </p>
             )}
-          </button>
-        </div>
-      </form>
 
-      <p className="signup-link">
-        Don't have an account? <a onClick={() => navigate('/signup')}>Sign Up</a>
-      </p>
-    </div>
-  );
-};
+          </div>
 
-export default LoginPage;
+          <div className="input-group">
+            <input
+              type="password"
+              id="signup-password"
+              {...signupForm.register('password', signupValidation.password)}
+              placeholder="Password"
+            />
+
+            {signupForm.formState.errors.password && (
+              <p className="error-message">
+                {signupForm.formState.errors.password.message}
+              </p>
+            )}
+          </div>
+
+
+
+          <div className='btn-signup'>
+            <button
+              type="submit"
+              disabled={isLoading || signupForm.formState.isSubmitting}
+            >
+              {isLoading ? (
+                <div
+                >
+                  Please wait...
+                </div>
+              ) : (
+                <>Sign In</>
+              )}
+            </button>
+          </div>
+        </form>
+        <p className="signup-link">
+          Don't have an account? <a onClick={() => setCurrState('signup')}>Sign Up</a>
+        </p>
+      </div >
+
+    </div >
+  )
+}
+
+export default Login

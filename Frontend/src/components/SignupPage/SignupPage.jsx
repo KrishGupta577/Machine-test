@@ -3,20 +3,21 @@ import { useForm } from "react-hook-form";
 import axios from "axios"
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {toast} from "react-toastify"
+import { toast } from "react-toastify"
+import { StoreContext } from '../../Context/StoreContext';
 
-const SignupPage = () => {
+const SignupPage = ({ setCurrState }) => {
 
     const [isLoading, setIsLoading] = useState(false);
     const signupForm = useForm();
     const navigate = useNavigate()
-    const url = "http://localhost:5000/api"
+    const { url } = useContext(StoreContext)
 
     const signupValidation = {
-        name : {
+        name: {
 
         },
-        email:{
+        email: {
             required: "Email or phone number is required",
         },
         password: {
@@ -105,7 +106,7 @@ const SignupPage = () => {
                             </p>
                         )}
                     </div>
-                    
+
 
 
                     <div className='btn-signup'>
@@ -115,11 +116,8 @@ const SignupPage = () => {
                         >
                             {isLoading ? (
                                 <div
-                                    className="loading-spinner"
-                                    animate={{ rotate: 360 }}
-                                    transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
                                 >
-
+                                    Please wait...
                                 </div>
                             ) : (
                                 <>Create Account</>
@@ -127,6 +125,9 @@ const SignupPage = () => {
                         </button>
                     </div>
                 </form>
+                <p className="signup-link">
+                    Don't have an account? <a onClick={() => setCurrState('login')}>Log In</a>
+                </p>
             </div >
 
         </div >

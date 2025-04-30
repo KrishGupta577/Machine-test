@@ -36,36 +36,16 @@
     border: none;
 }
 
-
-/*
-
-.signup-popup-condition{
-    display: flex;
-    gap: 10px;
-    margin: 20px 0px;
+.error-message{
+    color: red;
 }
 
-.btn-signup{
-    display: flex;
-    justify-content: center;
-    margin: 10px;
+.signup-link{
+    text-align: center;
 }
 
-.btn-signup button{
-    font-size: 15px;
-    padding: 5px;
-    border-radius: 10px;
-    color: white;
-    background-color: lightgreen;
-    border: none;
+.signup-link a{
+    text-decoration: none;
+    color: #db4444;
     cursor: pointer;
-    transition: all 0.5s;
 }
-
-.btn-signup button:hover{
-    background-color: var(--button-hover-color);
-    transform: scale(1.10);
-}
-
-
-    */

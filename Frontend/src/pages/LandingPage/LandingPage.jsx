@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SignupPage from '../../components/SignupPage/SignupPage'
 import './LandingPage.css'
+import Login from '../../components/LoginPage/LoginPage'
 
 const LandingPage = () => {
+
+    const [currState, setCurrState] = useState('signup')
+
     return (
         <div className='landing-page'>
             <div className="hero-img">
@@ -10,7 +14,9 @@ const LandingPage = () => {
             </div>
 
             <div className="signup-container">
-                <SignupPage />
+
+                {currState === 'login' && <Login setCurrState={setCurrState} />}
+                {currState === 'signup' && <SignupPage setCurrState={setCurrState}  />}
             </div>
         </div>
     )

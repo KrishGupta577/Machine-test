@@ -1,0 +1,44 @@
+.home {
+    margin: 0 20px 0px 100px;
+}
+
+.all-product-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.product-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.product-icon {
+    background-color: red;
+    width: 20px;
+    height: 40px;
+    border-radius: 4px;
+}
+
+.product-header p {
+    color: red;
+}
+
+.home-product-list {
+    margin-top: 100px;
+    border-bottom: 1px solid #000000;
+}
+
+.all-product-btn button {
+    padding: 15px 80px;
+    background-color: #db4444;
+    color: white;
+    border: none;
+    margin: 60px 0;
+}
+
+.home-categories{
+    padding: 50px;
+    margin: 50px 0;
+    border-bottom: 1px solid #000000;
+}

@@ -1,0 +1,13 @@
+.catogories-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.category-container{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #000000;
+    padding: 25px 40px;
+    justify-content: center;
+    align-items: center;
+}

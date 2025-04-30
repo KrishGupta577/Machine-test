@@ -4,7 +4,7 @@ import './Footer.css'
 
 const Footer = () => {
     return (
-        <div className=''>
+        <div className='' id='contact'>
             <div className='footer'>
                 <div className="exclusive">
                     <h3 className='exclusive-heading'>Exclusive</h3>
@@ -37,8 +37,11 @@ const Footer = () => {
                     <h3>Download App</h3>
                     <p>Save $3 with App New User only</p>
                     <div className="app-images">
-                        <img src="" alt="" />
-                        <div className="playstore-images"></div>
+                        <img className='qr-scanner' src="/991387c05dd6d44594e01b675513068803e2426d (2).jpg" alt="" />
+                        <div className="playstore-images">
+                            <img className='playstore' src="/a61d4c7110b18ab55a1e1a07ebf54a46ebb07284.png" alt="" />
+                            <img className='appstore' src="/38932d5accb54c528f9bcf326ca48ea29bd6d890.png" alt="" />
+                        </div>
                     </div>
                     <div className="social-links">
                         <Facebook />
@@ -49,9 +52,8 @@ const Footer = () => {
                 </div>
             </div>
             <div className="copyright">
-                <p>
-                    <Copyright /> copyright Rimel 2022. All rights reserved
-                </p>
+                <Copyright />
+                <p>copyright Rimel 2022. All rights reserved</p>
             </div>
         </div>
     )
